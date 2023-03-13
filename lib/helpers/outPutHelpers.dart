@@ -3,15 +3,16 @@ import 'package:tic_tac_toe__dart/entities/Player.dart';
 import 'package:tic_tac_toe__dart/entities/TicTacToeTable.dart';
 
 void printRules(Player firstPlayer, Player secondPlayer) {
-  print("Rules:\nFirst Player - ${firstPlayer.moveSymbol}\nSecond player - ${secondPlayer.moveSymbol}\n");
+  print("Rules:\nFirst Player - ${firstPlayer.moveSymbol}\nSecond player - ${secondPlayer.moveSymbol}");
+  print("Coordinate X - number of raw\nCoordinate Y - number of column\n");
 }
 
 void printUserInfo(TicTacToeTable table, int counter) {
-  print(
-    "${counter % 2 == 0 ? 'Second player:' : 'first player:'}Enter the coordinates of your move\n"
-  );
-
   table.outputInfo();
+  print("\n");
+  print(
+    "${counter % 2 == 0 ? 'Second player: ' : 'First player: ' }Enter the coordinates of your move\n"
+  );
 }
 
 String enterCoordinate(String coordinate) {
@@ -24,7 +25,7 @@ bool printWinnerInfo(TicTacToeTable table) {
 
   if (winner != 0) {
     table.outputInfo();
-    print("Winner is $winner player");
+    print("\nWinner is $winner player");
     return true;
   }
 

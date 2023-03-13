@@ -33,7 +33,9 @@ class TicTacToeTable {
 
   int whoIsWinner() {
     String checkedSymbol = '';
-    for (int i = 0; i < table[1].length; i++) {
+
+    //checking columns
+    for (int i = 0; i < 3; i++) {
       if (table[1][i] == ' ') {
         continue;
       }
@@ -54,12 +56,13 @@ class TicTacToeTable {
       return checkSymbolOfWinner(checkedSymbol);
     }
 
+    //checking raws
     for (int i = 0; i < 3; i++) {
       if (table[i][1] == ' ') {
         continue;
       }
-      if (table[i][1] == table[i][0] && table[i][1] == table[i][2]) {
-        checkedSymbol = table[1][i];
+      if (table[i][0] == table[i][1] && table[i][1] == table[i][2]) {
+        checkedSymbol = table[i][1];
         if (checkedSymbol == ' ') {
           checkedSymbol = '';
           continue;
@@ -90,5 +93,13 @@ class TicTacToeTable {
     }
 
     return 0;
+  }
+
+  bool isDraw(int counter) {
+    if (counter >= 9) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

@@ -19,11 +19,16 @@ void runGame() {
 
     printUserInfo(ticTacToe, counter);
 
-    String coordinateY = enterCoordinate("Y");
     String coordinateX = enterCoordinate("X");
+    String coordinateY = enterCoordinate("Y");
 
     if (!checkCoordinates(coordinateY, coordinateX)) {
       continue;
+    }
+
+    if (ticTacToe.isDraw(counter)) {
+      print("\nDraw!!");
+      isProgramWork = false;
     }
 
     if (
